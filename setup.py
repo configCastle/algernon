@@ -1,8 +1,8 @@
+"""Setup module of application."""
 from setuptools import find_packages, setup
 
-
 install_requires = [
-    'aiohttp==3.6.2'
+    'aiohttp==3.6.2',
 ]
 
 

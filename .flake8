@@ -1,0 +1,3 @@
+[flake8]
+per-file-ignores = algernon/tests/*: S101
+no-accept-encodings = True

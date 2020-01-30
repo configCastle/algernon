@@ -5,9 +5,14 @@ verify_ssl = true
 
 [dev-packages]
 flake8 = "*"
+pytest-aiohttp = "==0.3"
+wemake-python-styleguide = "*"
+coverage = "*"
+pytest-cov = "*"
 
 [packages]
 aiohttp = "==3.6.2"
+motor = "==2.1.0"
 
 [requires]
 python_version = "3.8"

@@ -1,10 +1,23 @@
+"""Main module."""
+import asyncio
+
 from aiohttp import web
 
-from routes import init_routes
+from algernon.routes import init_routes
+from algernon.utils.db import init_db
 
 
 def init_app() -> web.Application:
+    """
+    Initialize application, db for application and other.
+
+    Returns:
+        app: instance of application.
+    """
+    loop = asyncio.get_event_loop()
+    db = loop.run_until_complete(init_db())
     app = web.Application()
+    app['db'] = db
     init_routes(app)
     return app
 

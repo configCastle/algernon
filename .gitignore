@@ -1,4 +1,7 @@
 __pycache__
 .vscode
+.pytest_cache
+htmlcov
 
 .python-version
+.coverage
