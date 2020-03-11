@@ -1,7 +1,7 @@
 """Test for app.py."""
 from aiohttp import web
 
-from algernon.app import init_app
+from app import init_app
 
 
 async def test_app():
