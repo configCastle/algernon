@@ -23,11 +23,17 @@ If you want to enable the linter in vs code add the line to .vscode / settings.j
 
 ## Run application
 
+Use ```localhost:8080/graphql``` as server for your client.
+
 ### Docker
 
-If you want to start the project using Docker, then you can use the following command:
+If you want to start the project using Docker-compose:
 
-```docker run -p 8080:8080 --name <put your name> -d leocoan/algernon```
+1. Install ```docker``` and ```docker-compose```
+
+2. Run command: ```docker-compose up --build``` for first launch. After may use ```docker-compose up```
+
+3. Open another terminal tab and use command: ```make write_service``` to record services
 
 ### Native
 
@@ -37,6 +43,12 @@ If you want to start the project using Docker, then you can use the following co
 
 3. And after use the command: ```pipenv shell```
 
-4. Install ```mongodb 4.2```
+4. Install all dependencies with command: ```pipenv install``` or ```pipenv install --dev``` for install with dev-packages.
 
-5. Run project using the command: ```python algernon/app.py```
+5. Install ```mongodb 4.2```
+
+6. Run project using the command: ```python algernon/app.py```
+
+## Etc
+
+If you wanted error - please create issue.

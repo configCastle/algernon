@@ -1,3 +1,3 @@
 #! /bin/bash
 
-python algernon/app.py
+python app.py

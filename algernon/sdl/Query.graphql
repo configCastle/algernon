@@ -1,0 +1,21 @@
+type File {
+    id: ID!
+    name: String!
+    data: FileData!
+}
+
+type FileData {
+    global: String!
+    services: [Service]!
+}
+
+type Service {
+    id: ID!
+    name: String!
+    data: String!
+}
+
+type Query {
+    services: [Service!]
+    service(id: Int!): Service
+}

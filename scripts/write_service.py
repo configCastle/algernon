@@ -6,7 +6,7 @@ db = MongoClient().editor
 
 db.service.insert_one(
     {
-        '_id': '0',
+        'id': 0,
         'name': 'redis',
         'data': 'some_data',
     },
@@ -14,7 +14,7 @@ db.service.insert_one(
 
 db.service.insert_one(
     {
-        '_id': '1',
+        'id': 1,
         'name': 'postgres',
         'data': 'some_data',
     },
@@ -22,7 +22,7 @@ db.service.insert_one(
 
 db.service.insert_one(
     {
-        '_id': '2',
+        'id': 2,
         'name': 'node',
         'data': 'some_data',
     },

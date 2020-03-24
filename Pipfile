@@ -13,6 +13,7 @@ pytest-cov = "*"
 [packages]
 aiohttp = "==3.6.2"
 motor = "==2.1.0"
+tartiflette-aiohttp = "==1.1.0"
 
 [requires]
 python_version = "3.8"

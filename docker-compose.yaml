@@ -1,0 +1,18 @@
+version: '3'
+
+services: 
+    algernon:
+        build: .
+        container_name: algernon
+        ports: 
+            - '8080:8080'
+        links: 
+            - mongo_algernon
+    mongo_algernon:
+        image: 'mongo:4.2'
+        container_name: mongo_algernon
+        ports: 
+            - '27017:27017'
+        restart: always
+        expose: 
+            - '27017'
