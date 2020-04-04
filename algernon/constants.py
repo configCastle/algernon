@@ -1,3 +1,3 @@
 """Constants for the project."""
 
-mongo_port = 27107
+mongo_port = 27017

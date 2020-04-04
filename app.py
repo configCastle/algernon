@@ -3,6 +3,7 @@ import asyncio
 import os
 import sys
 
+import aiohttp_cors
 from aiohttp import web
 from tartiflette_aiohttp import register_graphql_handlers
 
@@ -20,8 +21,9 @@ def init_app() -> web.Application:
     loop = asyncio.get_event_loop()
     db = loop.run_until_complete(init_db())
     app = web.Application()
+    cors = aiohttp_cors.setup(app)
     app['db'] = db
-    init_routes(app)
+    init_routes(app, cors)
     return app
 
 
