@@ -1,12 +1,12 @@
+enum ConfigType {
+    DOCKER_COMPOSE
+}
+
 type File {
     id: ID!
     name: String!
-    data: FileData!
-}
-
-type FileData {
-    global: String!
-    services: [Service]!
+    data: String!
+    configType: ConfigType!
 }
 
 type Service {
@@ -18,4 +18,7 @@ type Service {
 type Query {
     services: [Service!]
     service(id: Int!): Service
+
+    files: [File]
+    file(id: Int!): File
 }
