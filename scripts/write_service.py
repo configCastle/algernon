@@ -8,22 +8,18 @@ db.service.insert_one(
     {
         'id': 0,
         'name': 'redis',
-        'data': 'some_data',
+        'data': ("{id: '_1_0',key: 'redis',value: [{id: '_1_0_0',"
+                 "key: 'build',value: '.'},{id: '_1_0_1',key: 'port',"
+                 "value: 8080}]}"),
     },
 )
 
 db.service.insert_one(
     {
         'id': 1,
-        'name': 'postgres',
-        'data': 'some_data',
-    },
-)
-
-db.service.insert_one(
-    {
-        'id': 2,
-        'name': 'node',
-        'data': 'some_data',
+        'name': 'mongo',
+        'data': ("{id: '_1_0',key: 'mongo',value: [{id: '_1_0_0',"
+                 "key: 'build',value: '.'},{id: '_1_0_1',key: 'port',"
+                 "value: 8080}]}"),
     },
 )

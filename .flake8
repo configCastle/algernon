@@ -1,3 +1,4 @@
 [flake8]
 per-file-ignores = algernon/tests/*: S101,app.py: WPS336,algernon/api/*: WPS226
 no-accept-encodings = True
+exclude = scripts/*
