@@ -12,7 +12,7 @@ db.file.insert_one(
                  '"services","value":[{"key":"redis","value":[{"key":"build",'
                  '"value":"."},{"key":"port","value":8080}]},{"key":"mongo",'
                  '"value":[{"key":"user","value":[{"value":"l"},{"value":"o"},'
-                 '{"value":"l"}]},{"key":"pass","value":"kek"}]}]}]"'),
+                 '{"value":"l"}]},{"key":"pass","value":"kek"}]}]}]'),
         'configType': 'DOCKER_COMPOSE',
     },
 )
