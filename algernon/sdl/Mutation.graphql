@@ -1,0 +1,9 @@
+input CreateFile {
+    name: String!
+    data: String!
+    configType: ConfigType!
+}
+
+type Mutation {
+    createFile(input: CreateFile!): File!
+}

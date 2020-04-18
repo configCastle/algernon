@@ -45,6 +45,7 @@ def run() -> None:
             engine_sdl=initialize_sdl(),
             engine_modules=[
                 'algernon.api.query_resolvers',
+                'algernon.api.mutation_resolvers',
             ],
             executor_http_endpoint='/graphql',
             executor_http_methods=['POST'],

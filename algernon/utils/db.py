@@ -35,3 +35,19 @@ async def return_all(db, collection):
         documents.append(document)
 
     return documents
+
+
+async def return_last_id(db, collection):
+    """
+    Return last id in collection.
+
+    Args:
+        db: instance of database
+        collection: name of collection
+
+    Returns:
+        last id in collection
+    """
+    documents = await return_all(db, collection)
+
+    return max(document_id['id'] for document_id in documents)
