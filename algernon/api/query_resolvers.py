@@ -83,3 +83,5 @@ async def resolve_query_file(parent, args, ctx, system):
     for document in await return_all(db, 'file'):
         if document['id'] == args.get('id', None):
             return document
+
+    return None
