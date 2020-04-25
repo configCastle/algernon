@@ -4,7 +4,15 @@ input CreateFile {
     configType: ConfigType!
 }
 
+input UpdateFile {
+    id: Int!
+    name: String
+    configType: String
+    data: String
+}
+
 type Mutation {
     createFile(input: CreateFile!): File!
     deleteFile(id: Int!): File!
+    updateFile(input: UpdateFile!): File!
 }
