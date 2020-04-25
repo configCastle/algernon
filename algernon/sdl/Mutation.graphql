@@ -6,4 +6,5 @@ input CreateFile {
 
 type Mutation {
     createFile(input: CreateFile!): File!
+    deleteFile(id: Int!): File!
 }
