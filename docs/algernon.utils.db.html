@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module algernon.utils.db</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="algernon.html"><font color="#ffffff">algernon</font></a>.<a href="algernon.utils.html"><font color="#ffffff">utils</font></a>.db</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/eduard/algernon/algernon/utils/db.py">/home/eduard/algernon/algernon/utils/db.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;for&nbsp;database&nbsp;settings.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>async <a name="-init_db"><strong>init_db</strong></a>()</dt><dd><tt>Initialize&nbsp;db&nbsp;and&nbsp;client&nbsp;of&nbsp;monngodb.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AsyncIOMotorClient().editor:&nbsp;database&nbsp;for&nbsp;application</tt></dd></dl>
+ <dl><dt>async <a name="-return_all"><strong>return_all</strong></a>(db, collection)</dt><dd><tt>Return&nbsp;all&nbsp;object&nbsp;in&nbsp;collection.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;db:&nbsp;object&nbsp;of&nbsp;database<br>
+&nbsp;&nbsp;&nbsp;&nbsp;collection:&nbsp;name&nbsp;of&nbsp;collection<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;all&nbsp;object&nbsp;in&nbsp;collections</tt></dd></dl>
+ <dl><dt>async <a name="-return_last_id"><strong>return_last_id</strong></a>(db, collection)</dt><dd><tt>Return&nbsp;last&nbsp;id&nbsp;in&nbsp;collection.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;db:&nbsp;instance&nbsp;of&nbsp;database<br>
+&nbsp;&nbsp;&nbsp;&nbsp;collection:&nbsp;name&nbsp;of&nbsp;collection<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;last&nbsp;id&nbsp;in&nbsp;collection</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>mongo_port</strong> = 27017</td></tr></table>
+</body></html>
