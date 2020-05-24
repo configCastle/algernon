@@ -15,6 +15,7 @@ aiohttp = "==3.6.2"
 motor = "==2.1.0"
 tartiflette-aiohttp = "==1.1.0"
 aiohttp-cors = "==0.7.0"
+dnspython = "*"
 
 [requires]
 python_version = "3.8"
