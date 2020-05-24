@@ -57,5 +57,6 @@ async def return_last_id(db, collection):
         last id in collection
     """
     documents = await return_all(db, collection)
+    document_ids = [document_id['id'] for document_id in documents]
 
-    return max(document_id['id'] for document_id in documents)
+    return max(document_ids, default=-1)
