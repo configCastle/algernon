@@ -23,6 +23,6 @@ def init_routes(app, cors):
             expose_headers='*',
             allow_headers='*',
             allow_credentials=True,
-            allow_methods=['POST', 'GET'],
+            allow_methods=['POST', 'GET', 'OPTIONS'],
         ),
     })
