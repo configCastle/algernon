@@ -41,6 +41,7 @@ def initialize_sdl():
 def run() -> None:
     """Entry point for graphql server."""
     port = os.getenv('PORT', standart_port)
+    graphiql = bool(os.getenv('GRAPHIQL', 'True'))
 
     web.run_app(
         register_graphql_handlers(
@@ -52,7 +53,7 @@ def run() -> None:
             ],
             executor_http_endpoint='/graphql',
             executor_http_methods=['POST'],
-            graphiql_enabled=True,
+            graphiql_enabled=graphiql,
         ),
         port=port,
     )
