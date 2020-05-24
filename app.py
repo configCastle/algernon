@@ -10,6 +10,7 @@ from tartiflette_aiohttp import register_graphql_handlers
 from algernon.constants import standart_port
 from algernon.routes import init_routes
 from algernon.utils.db import init_db
+from algernon.utils.strings import str_to_bool
 
 
 def init_app() -> web.Application:
@@ -41,7 +42,7 @@ def initialize_sdl():
 def run() -> None:
     """Entry point for graphql server."""
     port = os.getenv('PORT', standart_port)
-    graphiql = bool(os.getenv('GRAPHIQL', 'True'))
+    graphiql = str_to_bool(os.getenv('GRAPHIQL', 'True'))
 
     web.run_app(
         register_graphql_handlers(
