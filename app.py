@@ -45,7 +45,6 @@ def run() -> None:
     web.run_app(
         register_graphql_handlers(
             app=init_app(),
-            port=port,
             engine_sdl=initialize_sdl(),
             engine_modules=[
                 'algernon.api.query_resolvers',
@@ -55,6 +54,7 @@ def run() -> None:
             executor_http_methods=['POST'],
             graphiql_enabled=True,
         ),
+        port=port,
     )
 
 
