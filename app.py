@@ -7,6 +7,7 @@ import aiohttp_cors
 from aiohttp import web
 from tartiflette_aiohttp import register_graphql_handlers
 
+from algernon.constants import standart_port
 from algernon.routes import init_routes
 from algernon.utils.db import init_db
 
@@ -39,9 +40,12 @@ def initialize_sdl():
 
 def run() -> None:
     """Entry point for graphql server."""
+    port = os.getenv('PORT', standart_port)
+
     web.run_app(
         register_graphql_handlers(
             app=init_app(),
+            port=port,
             engine_sdl=initialize_sdl(),
             engine_modules=[
                 'algernon.api.query_resolvers',
