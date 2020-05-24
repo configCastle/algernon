@@ -1,4 +1,6 @@
 """Module for database settings."""
+import os
+
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from algernon.constants import mongo_port
@@ -14,7 +16,13 @@ async def init_db():
     """
     if in_docker():
         return AsyncIOMotorClient('mongo_algernon', mongo_port).editor
-    return AsyncIOMotorClient().editor
+
+    mongo_uri = os.getenv('MONGO_URI')
+
+    if mongo_uri is None:
+        return AsyncIOMotorClient().editor
+
+    return AsyncIOMotorClient(mongo_uri).editor
 
 
 async def return_all(db, collection):
