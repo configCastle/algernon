@@ -7,7 +7,7 @@ input CreateFile {
 input UpdateFile {
     id: Int!
     name: String
-    configType: String
+    configType: ConfigType
     data: String
 }
 
