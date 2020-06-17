@@ -62,7 +62,27 @@ async def return_last_id(db, collection):
     return max(document_ids, default=-1)
 
 
-async def return_file_by_user(db, user_id):
+async def returl_all_id(db, collection):
+    """
+    Return all id in collection.
+
+    Args:
+        db: instance of database
+        collection: name of collection
+
+    Returns:
+        all ids in collection
+    """
+    cursor = db[collection].find()
+    documents = []
+
+    async for document in cursor:
+        documents.append(document)
+
+    return [logins['id'] for logins in documents]
+
+
+async def return_files_by_user(db, user_id):
     """
     Return all files in collection by user.
 
