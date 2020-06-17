@@ -5,6 +5,7 @@ enum ConfigType {
 type File {
     id: ID!
     name: String!
+    user: Int!
     data: String!
     configType: ConfigType!
 }
@@ -19,6 +20,6 @@ type Query {
     services: [Service!]
     service(id: Int!): Service
 
-    files: [File]
+    files(user: Int!): [File]
     file(id: Int!): File
 }

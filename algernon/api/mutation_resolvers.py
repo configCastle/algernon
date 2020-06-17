@@ -28,6 +28,7 @@ async def resolve_mutation_create_file(parent, args, ctx, system):
             'id': file_id,
             'name': args['input']['name'],
             'data': args['input']['data'],
+            'user': args['input']['user'],
             'configType': args['input']['configType'],
         },
     )

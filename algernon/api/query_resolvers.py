@@ -1,7 +1,7 @@
 """Query resolovers for API."""
 from tartiflette import Resolver
 
-from algernon.utils.db import return_all
+from algernon.utils.db import return_all, return_file_by_user
 
 
 @Resolver('Query.services')
@@ -57,11 +57,12 @@ async def resolve_query_files(parent, args, ctx, system):
         system: information related to the execution
 
     Returns:
-        all objects in collections
+        all objects in collections by user
     """
     db = ctx['req'].app['db']
+    user_id = args.get('user')
 
-    return await return_all(db, 'file')
+    return await return_file_by_user(db, user_id)
 
 
 @Resolver('Query.file')
