@@ -3,6 +3,7 @@ from bson.objectid import ObjectId
 from tartiflette import Resolver
 
 from algernon.utils.db import returl_all_id, return_last_id
+from algernon.utils.token import check_token
 
 
 @Resolver('Mutation.createFile')
@@ -22,6 +23,9 @@ async def resolve_mutation_create_file(parent, args, ctx, system):
     Returns:
         return created document
     """
+    access_token = ctx['req'].headers.get('Authorization', None)
+    await check_token(access_token)
+
     db = ctx['req'].app['db']
 
     file_id = await return_last_id(db, 'file') + 1
@@ -60,6 +64,9 @@ async def resolve_mutation_delete_file(parent, args, ctx, system):
     Returns:
         Removed document
     """
+    access_token = ctx['req'].headers.get('Authorization', None)
+    await check_token(access_token)
+
     db = ctx['req'].app['db']
 
     document = await db.file.find_one({'id': args['id']})
@@ -90,6 +97,8 @@ async def resolve_mutation_update_file(parent, args, ctx, system):
     Returns:
         Updated document
     """
+    await check_token(ctx['req'].headers.get('Authorization', None))
+
     db = ctx['req'].app['db']
 
     args_input = args['input']
