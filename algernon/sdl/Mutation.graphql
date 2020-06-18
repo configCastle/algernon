@@ -1,6 +1,7 @@
 input CreateFile {
     name: String!
     data: String!
+    user: Int!
     configType: ConfigType!
 }
 

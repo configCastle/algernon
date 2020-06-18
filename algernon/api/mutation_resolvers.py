@@ -2,7 +2,8 @@
 from bson.objectid import ObjectId
 from tartiflette import Resolver
 
-from algernon.utils.db import return_last_id
+from algernon.utils.db import returl_all_id, return_last_id
+from algernon.utils.token import check_token
 
 
 @Resolver('Mutation.createFile')
@@ -16,18 +17,29 @@ async def resolve_mutation_create_file(parent, args, ctx, system):
         ctx: context field
         system: information related to the execution
 
+    Raises:
+        Exception: raise if id user does not exist
+
     Returns:
         return created document
     """
+    access_token = ctx['req'].headers.get('Authorization', None)
+    await check_token(access_token)
+
     db = ctx['req'].app['db']
 
     file_id = await return_last_id(db, 'file') + 1
+    user_id = args['input']['user']
+
+    if user_id not in await returl_all_id(db, 'user'):
+        raise Exception('User does not exist.')
 
     document = await db['file'].insert_one(
         {
             'id': file_id,
             'name': args['input']['name'],
             'data': args['input']['data'],
+            'user': user_id,
             'configType': args['input']['configType'],
         },
     )
@@ -52,6 +64,9 @@ async def resolve_mutation_delete_file(parent, args, ctx, system):
     Returns:
         Removed document
     """
+    access_token = ctx['req'].headers.get('Authorization', None)
+    await check_token(access_token)
+
     db = ctx['req'].app['db']
 
     document = await db.file.find_one({'id': args['id']})
@@ -82,6 +97,8 @@ async def resolve_mutation_update_file(parent, args, ctx, system):
     Returns:
         Updated document
     """
+    await check_token(ctx['req'].headers.get('Authorization', None))
+
     db = ctx['req'].app['db']
 
     args_input = args['input']

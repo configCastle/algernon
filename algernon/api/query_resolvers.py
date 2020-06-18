@@ -1,7 +1,8 @@
 """Query resolovers for API."""
 from tartiflette import Resolver
 
-from algernon.utils.db import return_all
+from algernon.utils.db import return_all, return_files_by_user
+from algernon.utils.token import check_token
 
 
 @Resolver('Query.services')
@@ -57,11 +58,15 @@ async def resolve_query_files(parent, args, ctx, system):
         system: information related to the execution
 
     Returns:
-        all objects in collections
+        all objects in collections by user
     """
-    db = ctx['req'].app['db']
+    access_token = ctx['req'].headers.get('Authorization', None)
+    await check_token(access_token)
 
-    return await return_all(db, 'file')
+    db = ctx['req'].app['db']
+    user_id = args.get('user')
+
+    return await return_files_by_user(db, user_id)
 
 
 @Resolver('Query.file')
@@ -78,6 +83,8 @@ async def resolve_query_file(parent, args, ctx, system):
     Returns:
         one file
     """
+    access_token = ctx['req'].headers.get('Authorization', None)
+    await check_token(access_token)
     db = ctx['req'].app['db']
 
     for document in await return_all(db, 'file'):
