@@ -19,9 +19,6 @@ async def resolve_query_services(parent, args, ctx, system):
     Returns:
         all objects in collections
     """
-    access_token = ctx['req'].headers.get('Authorization', None)
-    await check_token(access_token)
-
     db = ctx['req'].app['db']
 
     return await return_all(db, 'service')
@@ -41,9 +38,6 @@ async def resolve_query_service(parent, args, ctx, system):
     Returns:
         one service
     """
-    access_token = ctx['req'].headers.get('Authorization', None)
-    await check_token(access_token)
-
     db = ctx['req'].app['db']
 
     for document in await return_all(db, 'service'):
